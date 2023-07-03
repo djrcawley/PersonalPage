@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/djrcawley.github.io/static/css/main.d20202a4.css",
+    "main.js": "/djrcawley.github.io/static/js/main.ba9756a0.js",
+    "static/js/787.71e672d5.chunk.js": "/djrcawley.github.io/static/js/787.71e672d5.chunk.js",
+    "index.html": "/djrcawley.github.io/index.html",
+    "main.d20202a4.css.map": "/djrcawley.github.io/static/css/main.d20202a4.css.map",
+    "main.ba9756a0.js.map": "/djrcawley.github.io/static/js/main.ba9756a0.js.map",
+    "787.71e672d5.chunk.js.map": "/djrcawley.github.io/static/js/787.71e672d5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d20202a4.css",
+    "static/js/main.ba9756a0.js"
+  ]
+}

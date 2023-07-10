@@ -9,6 +9,7 @@ module.exports = {
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
+        'jost': ['Jost', 'sans-serif'],
       }
     },
   },

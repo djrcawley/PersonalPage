@@ -6,7 +6,7 @@ function App() {
       <div className='flex flex-col justify-center items-center flex-1'>
         <span className="text-[#D9D9D9] text-2xl font-jost font-bold mb-1">Hello, my name is</span>
         <div className='h-1 w-64 bg-[#BFBFBF] mb-1.5'></div>
-        <span className="text-white md:text-7xl text-6xl font-jost font-bold mb-1.5">Dennis Cawley</span>
+        <span className="text-white md:text-7xl text-6xl font-jost font-bold mb-1.5 text-center">Dennis Cawley</span>
         <span className="text-[#D9D9D9] text-2xl font-jost font-bold">Software Engineer</span>
       </div>
       <div className="flex flex-row items-center justify-center w-screen h-20">

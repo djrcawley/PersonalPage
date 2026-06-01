@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-stop-0: #b3d9ff;
+  --bg-stop-50: #8fc7ff;
+  --bg-stop-100: #66b4ff;
+  --wireframe-stroke: rgba(15, 23, 42, 0.28);
+}
+
+.dark {
+  --bg-stop-0: #334155;
+  --bg-stop-50: #2b3745;
+  --bg-stop-100: #1f2933;
+  --wireframe-stroke: rgba(255,255,255,0.22);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@supports (-webkit-touch-callout: none) {
+    .h-screen {
+      height: -webkit-fill-available;
+    }
+  }
+

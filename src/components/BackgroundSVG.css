@@ -1,0 +1,28 @@
+.wireframe-line {
+  fill: none;
+  stroke: var(--wireframe-stroke);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .22;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: bg-svg-trace 10s linear infinite;
+  animation-fill-mode: forwards;
+}
+
+.wireframe-line:hover {
+  opacity: 0.8;
+}
+
+@keyframes bg-svg-trace {
+  0% { stroke-dashoffset: 1200; opacity: .22; }
+  50% { opacity: .6; }
+  100% { stroke-dashoffset: 0; opacity: .22; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wireframe-line {
+    animation: none;
+  }
+}

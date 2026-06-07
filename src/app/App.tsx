@@ -44,7 +44,7 @@ function App() {
         onClick={toggleTheme}
         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-        className="absolute top-6 right-6 z-10 flex items-center justify-center h-10 w-10 rounded-full border border-slate-300 bg-white/60 text-slate-900 shadow-sm hover:bg-white dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:bg-slate-800"
+        className="absolute top-6 right-6 z-100 flex items-center justify-center h-12 w-12 rounded-full border border-slate-300 bg-white/60 text-slate-900 shadow-sm hover:bg-white dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:bg-slate-800"
       >
         {theme === 'dark' ? <BsSun className="h-5 w-5" /> : <BsMoon className="h-5 w-5" />}
         <span className="sr-only">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>

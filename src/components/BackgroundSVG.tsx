@@ -56,7 +56,6 @@ export default function BackgroundSVG({ className = '' }: { className?: string }
           <stop offset="50%" style={{ stopColor: 'var(--bg-stop-50)' }} />
           <stop offset="100%" style={{ stopColor: 'var(--bg-stop-100)' }} />
         </linearGradient>
-        {/* blob gradients and blur filter removed (not used) */}
       </defs>
       <path fill="url(#bg-gradient)" d="M0 0h1080v1920H0z" />
       <g transform="rotate(-30 366.494 498.196)">

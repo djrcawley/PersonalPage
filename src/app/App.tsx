@@ -44,7 +44,7 @@ function App() {
         onClick={toggleTheme}
         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-        className="absolute top-6 right-6 z-100 flex items-center justify-center h-12 w-12 rounded-full border border-slate-300 bg-white/60 text-slate-900 shadow-sm hover:bg-white dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:bg-slate-800"
+        className="absolute top-6 right-6 z-100 flex cursor-default items-center justify-center h-12 w-12 rounded-full border border-slate-300 bg-white/60 text-slate-900 shadow-sm hover:cursor-pointer hover:bg-white dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:bg-slate-800"
       >
         {theme === 'dark' ? <BsSun className="h-5 w-5" /> : <BsMoon className="h-5 w-5" />}
         <span className="sr-only">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
@@ -62,7 +62,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="mx-6 flex h-12 w-12 items-center justify-center rounded-full text-slate-700 hover:bg-slate-800 hover:text-white"
+          className="mx-6 flex cursor-default h-12 w-12 items-center justify-center rounded-full text-slate-700 hover:cursor-pointer hover:bg-slate-800 hover:text-white"
         >
           <BsGithub className="text-3xl" />
         </a>
@@ -72,7 +72,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="mx-6 flex h-12 w-12 items-center justify-center rounded-full text-slate-700 hover:bg-[#0A66C2] hover:text-white"
+          className="mx-6 flex cursor-default h-12 w-12 items-center justify-center rounded-full text-slate-700 hover:cursor-pointer hover:bg-[#0A66C2] hover:text-white"
         >
           <BsLinkedin className="text-3xl" />
         </a>
@@ -82,7 +82,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="mx-6 flex h-12 w-12 items-center justify-center rounded-full text-slate-700 hover:bg-pink-500 hover:text-white"
+          className="mx-6 flex cursor-default h-12 w-12 items-center justify-center rounded-full text-slate-700 hover:cursor-pointer hover:bg-pink-500 hover:text-white"
         >
           <BsInstagram className="text-3xl" />
         </a>

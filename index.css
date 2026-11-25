@@ -6,6 +6,10 @@
   --bg-stop-0: #b3d9ff;
   --bg-stop-50: #8fc7ff;
   --bg-stop-100: #66b4ff;
+  --portfolio-bg-start: #e8edf2;
+  --portfolio-bg-end: var(--portfolio-bg-start);
+  --portfolio-link-color: #24517a;
+  --portfolio-reveal-opacity: 1;
   --wireframe-stroke: rgba(15, 23, 42, 0.28);
 }
 
@@ -13,11 +17,81 @@
   --bg-stop-0: #334155;
   --bg-stop-50: #2b3745;
   --bg-stop-100: #1f2933;
+  --portfolio-bg-start: var(--bg-stop-100);
+  --portfolio-bg-end: var(--bg-stop-0);
+  --portfolio-link-color: currentColor;
+  --portfolio-reveal-opacity: 0.65;
   --wireframe-stroke: rgba(255,255,255,0.22);
+}
+
+.portfolio-page {
+  background-color: var(--bg-stop-100);
+}
+
+.portfolio-hero-fade {
+  background: linear-gradient(to bottom, transparent, var(--portfolio-bg-start));
+}
+
+.portfolio-content {
+  --portfolio-gradient: linear-gradient(to bottom, var(--portfolio-bg-start), var(--portfolio-bg-end));
+  background: var(--portfolio-gradient);
+}
+
+.portfolio-nav {
+  background-color: var(--portfolio-bg-start);
+  background-image: var(--portfolio-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% var(--portfolio-gradient-height, 100%);
+  background-position: 0 var(--portfolio-gradient-offset, 0px);
+  background-origin: border-box;
+}
+
+.portfolio-section {
+  scroll-margin-top: var(--portfolio-nav-height, 0px);
+}
+
+.portfolio-content :is(section, footer) a {
+  scroll-margin-top: calc(var(--portfolio-nav-height, 0px) + 0.5rem);
+  color: var(--portfolio-link-color);
+}
+
+.portfolio-sidebar {
+  top: calc(var(--portfolio-nav-height, 0px) + 1.5rem);
+}
+
+@media (min-width: 48rem) {
+  .portfolio-sidebar[data-sticky] {
+    position: sticky;
+  }
 }
 
 html {
   color-scheme: light dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @supports (animation-timeline: view()) and (animation-range: entry 0% entry 85%) {
+    .portfolio-section > * {
+      animation: portfolio-arrive linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;
+    }
+  }
+}
+
+@keyframes portfolio-arrive {
+  from {
+    opacity: var(--portfolio-reveal-opacity);
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body {

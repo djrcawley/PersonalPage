@@ -44,7 +44,7 @@ function App() {
       <header id="top" tabIndex={-1} className="relative isolate flex min-h-svh flex-col items-center overflow-hidden">
         <BackgroundSVG className="absolute inset-0 z-0 w-full h-full pointer-events-none" />
         {visibleSections.length > 0 && (
-          <div aria-hidden="true" className="portfolio-hero-fade pointer-events-none absolute inset-x-0 bottom-0 h-32" />
+          <div aria-hidden="true" className="portfolio-hero-fade pointer-events-none absolute inset-x-0 bottom-0 h-44 dark:h-32" />
         )}
         <button
           type="button"
@@ -98,7 +98,7 @@ function App() {
           <a href="#portfolio"
             className="relative z-10 mb-6 inline-flex items-center gap-3 rounded-full border border-slate-900/20 bg-white/25 px-5 py-3 text-sm font-semibold hover:bg-white/45 focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-white/20 dark:bg-white/5 dark:hover:bg-white/15">
             {firstSection.title}
-            <BsArrowDown aria-hidden="true" />
+            <BsArrowDown aria-hidden="true" className="text-[color:var(--portfolio-link-color)]" />
           </a>
         )}
       </header>

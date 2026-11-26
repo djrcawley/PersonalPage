@@ -23,15 +23,8 @@ export type Section = { id: SectionId; title: string; visible: boolean; items: E
 export const sections: Section[] = [
   {
     id: SectionId.About, title: 'About me', visible: true,
-    items: [{ description: 'I’m Dennis Cawley, a software engineer. I built this site as a place to share my projects and the details behind them.' }],
-  },
-  {
-    id: SectionId.Projects, title: 'Featured projects', visible: true,
     items: [{
-      title: 'Personal Portfolio',
-      description: 'My home on the web, with an animated wireframe background and a theme that remembers your preference.',
-      tags: ['React', 'TypeScript', 'Vite'],
-      links: [{ label: 'View source', href: 'https://github.com/djrcawley/PersonalPage' }],
+      description: 'I’m a software engineer based in Dallas, Texas. I’m passionate about understanding how things work and figuring out what I can build to make them better. Feel free to reach out.',
     }],
   },
   {
@@ -45,17 +38,18 @@ export const sections: Section[] = [
         title: 'Software Engineer · Optimal Blue',
         dates: 'Dec 2024 – Nov 2026',
         bullets: [
-          'Develop and maintain core features for a next-generation Pricing & Product Engine, using Angular and .NET, achieving full feature parity with a legacy system and supporting the migration of 500+ mortgage lenders',
-          'Integrated an AI-powered Originator Assistant into pricing workflows, analyzing real-time loan data to deliver actionable recommendations and improve customer interest rates',
-          'Lead triage and resolution of client-reported issues across multiple platform integrations (Encompass, Empower, Byte), improving system reliability and customer satisfaction',
-          'Built a margin optimization tool during a company-wide hackathon leveraging historical mortgage market data to help lenders competitively price rates and improve decision-making',
+          'Built core pricing functionality in Angular and .NET for Optimal Blue’s new Product & Pricing Engine, helping match the legacy platform’s capabilities and supporting a migration involving 400+ mortgage lenders',
+          'Built APIs for web and mobile applications and helped the mobile team integrate them through documentation, walkthroughs, and joint debugging',
+          'Supported triage and resolution of client-reported issues across Encompass, Empower, and Byte integrations.',
+          'Led the mortgage pricing application’s migration to a shared Angular component library to standardize applications across the company',
+          'Piloted spec-driven development with AWS AI-DLC and authored custom skills and repository-level instructions that helped shape the rollout',
         ],
       },
       {
         title: 'Software Engineer · Walmart Global Tech',
         dates: 'Aug 2023 – Dec 2024',
         bullets: [
-          'Developed business-critical pricing applications using React and Typescript for Sam’s Club Pricing Execution, enabling pricing managers to submit, approve and audit 150,000+ daily updates',
+          'Developed business-critical pricing applications using React and TypeScript for Sam’s Club Pricing Execution, enabling pricing managers to submit, approve and audit 150,000+ daily updates',
           'Implemented a configurable Rules Engine UI that automated pricing approvals based on disaster zones, pricing thresholds, and store-specific logic, significantly reducing manual review effort and accelerating time-to-approval',
           'Triaged and resolved production incidents across Spring Boot/Java APIs and frontend services, conducting full root-cause analysis to restore functionality and prevent recurrence',
           'Partnered with product managers and UX designers to translate complex pricing workflows and wireframes into scalable, maintainable UI components aligned with Walmart design standards',
@@ -65,8 +59,8 @@ export const sections: Section[] = [
         title: 'Software Engineer Intern · Collins Aerospace',
         dates: 'Jun 2022 – May 2023',
         bullets: [
-          'Enhanced 3D data visualizations dashboard using Angular and Three.js, highlighting manufacturing inefficiencies that led to a $40K cost reduction per product lifecycle',
-          'Created Django/Python REST APIs to aggregate manufacturing data, enabling downstream analysis',
+          'Enhanced an Angular and Three.js dashboard that surfaced manufacturing inefficiencies with estimated savings of $40,000 per product lifecycle',
+          'Built REST APIs in Python and Django to aggregate manufacturing data for analysis',
           'Led UX testing initiatives on an Agile team, improving usability, user engagement, and workflow efficiency through iterative feedback and refinements',
         ],
       },
@@ -76,7 +70,6 @@ export const sections: Section[] = [
         bullets: [
           'Increased frontend unit test coverage to 95% using Karma and Jest, remediated legacy code smells, and enforced consistent ESLint standards to reduce technical debt and improve application stability',
           'Designed and pitched a gamified developer experience tool that visualized code quality metrics, incentivizing clean coding practices and reducing linting errors across the engineering organization',
-          'Contributed to Agile team ceremonies while earning SAFe Agile Practitioner certification, strengthening understanding of enterprise-scale software delivery',
         ],
       },
     ],
@@ -106,6 +99,15 @@ export const sections: Section[] = [
         ],
       },
     ],
+  },
+  {
+    id: SectionId.Projects, title: 'Featured projects', visible: true,
+    items: [{
+      title: 'Personal Portfolio',
+      description: 'My home on the web, with an animated wireframe background and a theme that remembers your preference.',
+      tags: ['React', 'TypeScript', 'Vite'],
+      links: [{ label: 'View source', href: 'https://github.com/djrcawley/PersonalPage' }],
+    }],
   },
   {
     id: SectionId.Now, title: 'Currently working on', visible: false,

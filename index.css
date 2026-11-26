@@ -3,14 +3,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg-stop-0: #b3d9ff;
-  --bg-stop-50: #8fc7ff;
-  --bg-stop-100: #66b4ff;
+  --bg-stop-0: #f1f5f9;
+  --bg-stop-50: #e2eaf2;
+  --bg-stop-100: #d4e0ec;
   --portfolio-bg-start: #e8edf2;
   --portfolio-bg-end: var(--portfolio-bg-start);
   --portfolio-link-color: #24517a;
   --portfolio-reveal-opacity: 1;
-  --wireframe-stroke: rgba(15, 23, 42, 0.28);
+  --wireframe-stroke: rgb(59 82 106 / 40%);
 }
 
 .dark {

@@ -8,11 +8,6 @@
   stroke-dasharray: 1200;
   stroke-dashoffset: 1200;
   animation: bg-svg-trace 10s linear infinite;
-  animation-fill-mode: forwards;
-}
-
-.wireframe-line:hover {
-  opacity: 0.8;
 }
 
 @keyframes bg-svg-trace {

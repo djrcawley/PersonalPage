@@ -22,7 +22,7 @@ In VS Code, you can also open the **NPM SCRIPTS** section in Explorer and run `s
 
 ## Build and preview
 
-Create a production build in the `build/` folder:
+Check TypeScript and create a production build in the `build/` folder:
 
 ```sh
 npm run build
@@ -53,7 +53,7 @@ These scripts are defined in `package.json`; VS Code detects them automatically 
 | Script | What it does |
 | --- | --- |
 | `start` | Starts the Vite development server. |
-| `build` | Creates the production site in `build/`. |
+| `build` | Checks TypeScript and creates the production site in `build/`. |
 | `predeploy` | Builds the site automatically before `deploy`. |
 | `deploy` | Publishes `build/` to the `gh-pages` branch. |
 | `serve` | Locally previews the existing production build. |

@@ -1,67 +1,55 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BsArrowDown, BsLinkedin, BsInstagram, BsGithub, BsMoon, BsSun } from 'react-icons/bs';
 import BackgroundSVG from '../components/BackgroundSVG';
 import PortfolioContent from './PortfolioContent';
 import { sections } from './portfolio';
 
-const visibleSections = sections.filter(section => section.visible && (section.items.length > 0 || section.supportingItems?.length));
-const firstSection = visibleSections[0];
+const visibleSections = sections.filter(section =>
+  section.visible && (section.items.length > 0 || section.supportingItems?.length),
+);
+const firstSection = visibleSections.at(0);
 
 type Theme = 'light' | 'dark';
 
 function App() {
-  const getInitialTheme = (): Theme => {
-    if (typeof window === 'undefined') {
-      return 'dark';
-    }
-
-    const storedTheme = window.localStorage.getItem('theme');
-    if (storedTheme === 'light' || storedTheme === 'dark') {
-      return storedTheme;
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
-
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    window.localStorage.setItem('theme', theme);
-  }, [theme]);
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+  );
+  const nextTheme = theme === 'dark' ? 'light' : 'dark';
+  const themeToggleLabel = `Switch to ${nextTheme} mode`;
 
   const toggleTheme = () => {
-    setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
+    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+    setTheme(nextTheme);
+    try {
+      window.localStorage.setItem('theme', nextTheme);
+    } catch {
+      // The chosen theme still applies for the current page visit.
+    }
   };
 
   return (
     <main className="portfolio-page text-slate-900 dark:text-white">
       <header id="top" tabIndex={-1} className="relative isolate flex min-h-svh flex-col items-center overflow-hidden">
         <BackgroundSVG className="absolute inset-0 z-0 w-full h-full pointer-events-none" />
-        {visibleSections.length > 0 && (
+        {firstSection && (
           <div aria-hidden="true" className="portfolio-hero-fade pointer-events-none absolute inset-x-0 bottom-0 h-44 dark:h-32" />
         )}
         <button
           type="button"
           onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          aria-label={themeToggleLabel}
+          title={themeToggleLabel}
           className="absolute top-6 right-6 z-100 flex cursor-default items-center justify-center h-12 w-12 rounded-full border border-slate-300 bg-white/60 text-slate-900 shadow-sm hover:cursor-pointer hover:bg-white dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:bg-slate-800"
         >
           {theme === 'dark' ? <BsSun className="h-5 w-5" /> : <BsMoon className="h-5 w-5" />}
-          <span className="sr-only">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
         </button>
 
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-20">
-          <span className="mb-1 text-2xl font-jost font-bold text-slate-600 dark:text-[#D9D9D9]">Hello, my name is</span>
+          <span className="mb-1 text-2xl font-bold text-slate-600 dark:text-[#D9D9D9]">Hello, my name is</span>
           <div className='mb-1.5 h-1 w-64 bg-slate-300 dark:bg-slate-600'></div>
-          <h1 className="mb-1.5 text-center font-jost text-[clamp(2.75rem,9vw,4.5rem)] leading-tight font-bold">Dennis Cawley</h1>
-          <span className="text-2xl font-jost font-bold text-slate-600 dark:text-[#D9D9D9]">Software Engineer</span>
+          <h1 className="mb-1.5 text-center text-[clamp(2.75rem,9vw,4.5rem)] leading-tight font-bold">Dennis Cawley</h1>
+          <span className="text-2xl font-bold text-slate-600 dark:text-[#D9D9D9]">Software Engineer</span>
         </div>
         <div className="relative z-10 flex flex-row items-center justify-center w-full h-20 dark:[&>a]:text-slate-200">
           <a

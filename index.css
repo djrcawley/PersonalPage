@@ -41,7 +41,7 @@
   background-color: var(--portfolio-bg-start);
   background-image: var(--portfolio-gradient);
   background-repeat: no-repeat;
-  background-size: 100% var(--portfolio-gradient-height, 100%);
+  background-size: 100% var(--portfolio-gradient-height, 0px);
   background-position: 0 var(--portfolio-gradient-offset, 0px);
   background-origin: border-box;
 }
@@ -63,10 +63,6 @@
   .portfolio-sidebar[data-sticky] {
     position: sticky;
   }
-}
-
-html {
-  color-scheme: light dark;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -97,10 +93,4 @@ html {
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-@supports (-webkit-touch-callout: none) {
-    .h-screen {
-      height: -webkit-fill-available;
-    }
-  }
 

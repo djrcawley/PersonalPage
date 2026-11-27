@@ -48,7 +48,7 @@ export default function PortfolioContent({ sections }: { sections: Section[] }) 
 
     const sidebars = portfolio.querySelectorAll<HTMLElement>('.portfolio-sidebar');
 
-    // Paint the same slice of the opaque gradient that the navigation covers.
+    // Align the navigation background with the slice of the gradient behind it.
     const syncGradientOffset = () => {
       const offset = portfolio.getBoundingClientRect().top - navigation.getBoundingClientRect().top;
       navigation.style.setProperty('--portfolio-gradient-offset', `${offset}px`);
@@ -56,8 +56,9 @@ export default function PortfolioContent({ sections }: { sections: Section[] }) 
 
     const syncLayout = () => {
       const navHeight = navigation.getBoundingClientRect().height;
+      const portfolioHeight = portfolio.getBoundingClientRect().height;
       portfolio.style.setProperty('--portfolio-nav-height', `${navHeight}px`);
-      navigation.style.setProperty('--portfolio-gradient-height', `${portfolio.getBoundingClientRect().height}px`);
+      navigation.style.setProperty('--portfolio-gradient-height', `${portfolioHeight}px`);
       sidebars.forEach(sidebar => {
         const stickyTop = parseFloat(getComputedStyle(sidebar).top);
         const fits = stickyTop + sidebar.getBoundingClientRect().height <= document.documentElement.clientHeight;
@@ -100,17 +101,19 @@ export default function PortfolioContent({ sections }: { sections: Section[] }) 
   };
 
   return (
-    <div ref={portfolioRef} id="portfolio" tabIndex={-1} onFocusCapture={keepFocusVisible} className="portfolio-content px-6 pb-16">
-      <div className="mx-auto max-w-4xl">
-        <nav ref={navigationRef} aria-label="Portfolio sections" className="portfolio-nav sticky top-0 z-20 grid grid-cols-2 content-center gap-1 border-b border-slate-900/20 px-1 py-2 md:flex md:items-center md:justify-center md:gap-2 md:py-3 dark:border-white/20">
+    <div ref={portfolioRef} id="portfolio" tabIndex={-1} onFocusCapture={keepFocusVisible} className="portfolio-content pb-16">
+      <nav ref={navigationRef} aria-label="Portfolio sections" className="portfolio-nav sticky top-0 z-20 border-b border-slate-900/20 px-6 dark:border-white/20">
+        <div className="mx-auto grid max-w-4xl grid-cols-2 content-center gap-1 px-1 py-2 md:flex md:items-center md:justify-center md:gap-2 md:py-3">
           {sections.map(section => (
             <a key={section.id} href={'#' + section.id} className="flex min-h-10 items-center justify-center rounded-full px-2 text-center text-xs font-semibold hover:bg-white/40 sm:px-3 sm:text-sm dark:hover:bg-white/10">{section.title}</a>
           ))}
-        </nav>
+        </div>
+      </nav>
+      <div className="mx-auto box-content max-w-4xl px-6">
         {sections.map(section => (
           <section key={section.id} id={section.id} tabIndex={-1} aria-labelledby={section.id + '-heading'}
             className={`portfolio-section grid gap-6 border-b border-slate-900/20 py-10 last:border-b-0 md:py-12 dark:border-white/20 ${section.supportingItems?.length ? '' : 'md:grid-cols-[1fr_2fr]'}`}>
-            <h2 id={section.id + '-heading'} className="font-jost text-2xl font-bold after:mt-3 after:block after:h-1 after:w-12 after:bg-slate-700/35 dark:after:bg-slate-400/45">{section.title}</h2>
+            <h2 id={section.id + '-heading'} className="text-2xl font-bold after:mt-3 after:block after:h-1 after:w-12 after:bg-slate-700/35 dark:after:bg-slate-400/45">{section.title}</h2>
             {section.supportingItems?.length ? (
               <div className="grid items-start gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                 <Entries items={section.items} />

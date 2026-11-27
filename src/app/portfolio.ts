@@ -13,8 +13,6 @@ export enum SectionId {
   About = 'about',
   Projects = 'projects',
   Experience = 'experience',
-  Now = 'now',
-  Interests = 'interests',
   Contact = 'contact',
 }
 
@@ -108,14 +106,6 @@ export const sections: Section[] = [
       tags: ['React', 'TypeScript', 'Vite'],
       links: [{ label: 'View source', href: 'https://github.com/djrcawley/PersonalPage' }],
     }],
-  },
-  {
-    id: SectionId.Now, title: 'Currently working on', visible: false,
-    items: [{ title: 'Current project', description: 'Share what you are building or learning.' }],
-  },
-  {
-    id: SectionId.Interests, title: 'Personal interests', visible: false,
-    items: [{ title: 'Interest', description: 'Share something you enjoy outside of work.' }],
   },
   {
     id: SectionId.Contact, title: 'Get in touch', visible: true,
